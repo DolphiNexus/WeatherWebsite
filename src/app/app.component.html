@@ -11,14 +11,13 @@
     <p *ngIf="weather.length == 0">Searching...</p>
     <div *ngIf="weather.length > 0">
         <table style="width: 100%; text-align: center">
-            <thead></thead>
+            <thead>7 Day Forecast</thead>
             <tbody>
-              <h1>7 Day Forecast</h1>
                 <tr>
                     <td *ngFor="let forecast of weather">
                         <img [src]="forecast.iconLink" />
                         <p>{{ (forecast.highTemperature *9/5 +32).toFixed(1) }}F</p>
-                        <p>{{ forecast.utcTime }}</p>
+                        <p>{{ (forecast.utcTime) }}</p>
                     </td>
                 </tr>
             </tbody>

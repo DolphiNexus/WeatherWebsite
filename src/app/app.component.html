@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+<body>
+
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Circle-icons-weather.svg/1024px-Circle-icons-weather.svg.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -7,21 +9,26 @@
   </a>
 </nav>
 
+<p>{{ forecast.location }}</p>
+
 <div style="background-color: #F0F0F0; width: 75%; padding: 20px; border: 1px solid #CCC; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
     <p *ngIf="weather.length == 0">Searching...</p>
     <div *ngIf="weather.length > 0">
-        <table style="width: 100%; text-align: center">
+        <table style="width: 100%; text-align: center;">
             <thead>7 Day Forecast</thead>
             <tbody>
                 <tr>
                     <td *ngFor="let forecast of weather">
+                        <p>{{ (forecast.utcTime | date:'EEE') }}</p>
                         <img [src]="forecast.iconLink" />
-                        <p>{{ (forecast.highTemperature *9/5 +32).toFixed(1) }}F</p>
-                        <p>{{ (forecast.utcTime) }}</p>
+                        <p style="font-weight: bold;">{{ (forecast.highTemperature *9/5 +32).toFixed(1) }}F</p>
+                        <p>{{ (forecast.utcTime | date:'MM-dd-yyyy') }}</p>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+</body>
+
 

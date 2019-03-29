@@ -9,14 +9,14 @@
   </a>
 </nav>
 
-<div style="background-color: #F0F0F0; width: 75%; padding: 20px; border: 1px solid #CCC; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+<div style="width: 75%; padding: 20px; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
     <p *ngIf="weather.length == 0">Searching...</p>
     <div *ngIf="weather.length > 0">
         <table style="width: 100%; text-align: center;">
             <thead>7 Day Forecast</thead>
             <tbody>
                 <tr>
-                    <td *ngFor="let forecast of weather">
+                    <td *ngFor="let forecast of weather" class="td">
                         <p>{{ (forecast.utcTime | date:'EEE') }}</p>
                         <img [src]="forecast.iconLink" />
                         <p style="font-weight: bold;">{{ (forecast.highTemperature *9/5 +32).toFixed(1) }}F</p>
@@ -27,6 +27,7 @@
         </table>
     </div>
 </div>
+
 </body>
 
 

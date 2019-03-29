@@ -5,3 +5,8 @@ p {
 h1 {
   text-align: center;
 }
+
+.td {
+  border: solid 2px gray;
+  margin-right: 5px;
+}
